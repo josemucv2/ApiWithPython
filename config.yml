@@ -1,0 +1,3 @@
+deploy:
+  - git clone https://github.com/josemucv2/ApiWithPython.git
+  - ./pythonanywhere.sh
