@@ -4,6 +4,8 @@ from middlewares.error_handler import ErrorHandler
 from routers.Product.Product import product_router
 from routers.User.User import user_router
 from models.users import User
+from fastapi.responses import  HTMLResponse
+
 
 
 # metodos Path, Query sirven para las validaciones, y especificar por donde van a entrar los datos
@@ -20,6 +22,10 @@ app.title = "Documentacion Principal"
 app.description = "Descripcion Documentacion Principal"
 app.version = "1.0.0"
 app.add_middleware(ErrorHandler)
+
+@app.get('/')
+def get_hello():
+    return HTMLResponse("<h2>Hello!</h2>")
 
 Base.metadata.create_all(bind =  engine)
 
